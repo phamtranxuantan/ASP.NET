@@ -13,5 +13,12 @@ namespace PhamTranXuanTan_2122110248.Controllers
         {
             return View();
         }
+        public ActionResult AllProductList() {
+            return View();
+        }
+        public ActionResult AllProductGrid()
+        {
+            return View();
+        }
     }
 }
