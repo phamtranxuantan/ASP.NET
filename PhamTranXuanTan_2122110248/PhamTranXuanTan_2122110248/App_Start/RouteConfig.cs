@@ -16,7 +16,9 @@ namespace PhamTranXuanTan_2122110248
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional 
+                },
+                 namespaces: new[] { "PhamTranXuanTan_2122110248.Controllers" } // Chỉ định namespace cụ thể
             );
         }
     }

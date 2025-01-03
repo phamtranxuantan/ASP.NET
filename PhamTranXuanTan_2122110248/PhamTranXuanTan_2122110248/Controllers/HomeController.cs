@@ -22,6 +22,10 @@ namespace PhamTranXuanTan_2122110248.Controllers
         {
             return View();
         }
+        public ActionResult DealsAndOffers()
+        {
+            return View();
+        }
 
     }
 }

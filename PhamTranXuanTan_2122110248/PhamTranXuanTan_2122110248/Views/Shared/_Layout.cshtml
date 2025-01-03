@@ -72,16 +72,16 @@
 
                             </div>
                             <div class="widget-header mr-3">
-                                <a href="@Url.Action("Messages", "Home")" class="widget-view">
+                                <a href="@Url.Action("Wishlist", "Wishlist")" class="widget-view">
                                     <div class="icon-area">
-                                        <i class="fa fa-comment-dots"></i>
+                                        <i class="fas fa-heart wishlist-icon"></i>
                                         <span class="notify">1</span>
                                     </div>
-                                    <small class="text">Message</small>
+                                    <small class="text">Wishlist</small>
                                 </a>
                             </div>
                             <div class="widget-header mr-3">
-                                <a href="@Url.Action("Login", "Home")" class="widget-view">
+                                <a href="@Url.Action("Order", "Order")" class="widget-view">
                                     <div class="icon-area">
                                         <i class="fa fa-store"></i>
                                     </div>
@@ -149,7 +149,7 @@
                                 <a class="dropdown-item" href="page-content.html">Info content</a>
                                 <a class="dropdown-item" href="page-user-login.html">Page login</a>
                                 <a class="dropdown-item" href="page-user-register.html">Page register</a>
-                                <a class="dropdown-item disabled text-muted" href="#">More components</a>
+                                <a class="dropdown-item" href="@Url.Action("Main", "Profile")">Profile</a>
                             </div>
                         </li>
                        
