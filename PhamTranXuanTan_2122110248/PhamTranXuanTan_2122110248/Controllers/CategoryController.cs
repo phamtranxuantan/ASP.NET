@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PhamTranXuanTan_2122110248.Context;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,12 @@ namespace PhamTranXuanTan_2122110248.Controllers
 {
     public class CategoryController : Controller
     {
+        ECommerceDBEntities1 objECommerceDBEntities = new ECommerceDBEntities1();
         // GET: Category
         public ActionResult AllCategory()
         {
-            return View();
+            var categories = objECommerceDBEntities.categories.ToList();
+            return View(categories);
         }
     }
 }
