@@ -14,6 +14,8 @@ namespace PhamTranXuanTan_2122110248.Controllers
         public ActionResult AllCategory()
         {
             var categories = objECommerceDBEntities.categories.ToList();
+            int totalItems = categories.Count();
+            ViewBag.TotalItems = totalItems; // Truyền tổng số sản phẩm về View
             return View(categories);
         }
     }

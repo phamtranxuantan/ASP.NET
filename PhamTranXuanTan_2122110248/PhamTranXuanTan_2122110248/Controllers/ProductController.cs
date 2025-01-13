@@ -16,6 +16,9 @@ namespace PhamTranXuanTan_2122110248.Controllers
         {
             ViewBag.CategoryId = categoryId;
             var products = objECommerceDBEntities.products.Where(p => p.category_id == categoryId).ToList();
+            // Lấy tổng số lượng sản phẩm trước khi phân trang
+            int totalItems = products.Count();
+            ViewBag.TotalItems = totalItems; // Truyền tổng số sản phẩm về View
             int pageSize = 2;
             int pageNumber = (page ?? 1);
             return View(products.ToPagedList(pageNumber, pageSize));
@@ -31,7 +34,7 @@ namespace PhamTranXuanTan_2122110248.Controllers
             }
             return View(product);
         }
-        public ActionResult AllProductGrid(string search = "")
+        public ActionResult AllProductGrid(string search = "", int? page = 1)
         {
             // Lấy danh sách sản phẩm từ cơ sở dữ liệu
             var products = objECommerceDBEntities.products.AsQueryable();
@@ -41,11 +44,21 @@ namespace PhamTranXuanTan_2122110248.Controllers
             {
                 products = products.Where(p => p.name.Contains(search) || p.description.Contains(search));
             }
+            // Lấy tổng số lượng sản phẩm trước khi phân trang
+            int totalItems = products.Count();
+            ViewBag.TotalItems = totalItems; // Truyền tổng số sản phẩm về View
+            // Số lượng sản phẩm hiển thị trên mỗi trang
+            int pageSize = 4; // Bạn có thể thay đổi số lượng sản phẩm trên mỗi trang tại đây
+            int pageNumber = page ?? 1; // Trang hiện tại (mặc định là 1)
 
-            // Trả kết quả về view với danh sách sản phẩm đã lọc
+            // Sắp xếp sản phẩm theo `id` giảm dần
+            products = products.OrderByDescending(p => p.id);
+
+            // Truyền từ khóa tìm kiếm và danh sách sản phẩm đã phân trang về View
             ViewBag.SearchTerm = search; // Truyền từ khóa tìm kiếm về View
-            return View(products.ToList());
+            return View(products.ToPagedList(pageNumber, pageSize));
         }
+
         public ActionResult DealsAndOffers()
         {
             // Lấy sản phẩm được tạo sớm nhất

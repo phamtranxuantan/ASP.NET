@@ -44,7 +44,7 @@ namespace PhamTranXuanTan_2122110248.Areas.Admin.Controllers
                 ViewBag.CurrentFilter = SearchString;
             //số lượng item của 1 trang = 4
             int pageSize = 4;
-                    int pageNumber = (page ?? 1);
+            int pageNumber = (page ?? 1);
             // sắp xếp theo id sản phẩm, sp mới đưa lên đầu
             lstProduct=lstProduct.OrderByDescending(n => n.id).ToList();
             return View(lstProduct.ToPagedList(pageNumber, pageSize));
