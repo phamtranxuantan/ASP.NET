@@ -16,7 +16,11 @@ namespace PhamTranXuanTan_2122110248.Models
         {
             get; set;
         }
-        public  product Product
+        public List<Context.product> Product
+        {
+            get; set;
+        }
+        public List<Context.product> ProductRecommended
         {
             get; set;
         }

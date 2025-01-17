@@ -22,7 +22,8 @@ namespace PhamTranXuanTan_2122110248.Context
         public int category_id { get; set; }
         public Nullable<int> brand_id { get; set; }
         public string image { get; set; }
-        
+        public string category_name { get; set; }
+
         public Nullable<System.DateTime> created_at { get; set; }
     }
 }

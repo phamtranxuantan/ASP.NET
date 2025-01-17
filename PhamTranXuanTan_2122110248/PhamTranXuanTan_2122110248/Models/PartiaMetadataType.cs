@@ -25,4 +25,11 @@ namespace PhamTranXuanTan_2122110248.Context
         [NotMapped]
         public System.Web.HttpPostedFileBase ImageUpload { get; set; }
     }
+    [MetadataType(typeof(BrandsMasterData))]
+    public partial class brand
+    {
+        [NotMapped]
+        public System.Web.HttpPostedFileBase ImageUpload { get; set; }
+    }
+
 }

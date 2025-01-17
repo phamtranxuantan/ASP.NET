@@ -9,7 +9,7 @@
 
 <h3>Bạn có chắc chắn muốn xóa sản phẩm này không?</h3>
 <div>
-    <h4>sản phẩm</h4>
+    <h4>sản phẩm @Model.name</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -55,10 +55,12 @@
         <dt>
             @Html.DisplayNameFor(model => model.image)
         </dt>
-
-        <dd>
+        <td>
+            <img src="~/Content/images/products/@Model.image" alt="Product Image" style="width: 100px; height: auto;" />
+        </td>
+        @*<dd>
             @Html.DisplayFor(model => model.image)
-        </dd>
+        </dd>*@
 
         <dt>
             @Html.DisplayNameFor(model => model.created_at)

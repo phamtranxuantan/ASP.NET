@@ -6,7 +6,6 @@
 }
 
 <h2>Quản lý danh mục</h2>
-
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -43,9 +42,9 @@
             @Html.DisplayFor(modelItem => item.created_at)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.id })
         </td>
     </tr>
 }

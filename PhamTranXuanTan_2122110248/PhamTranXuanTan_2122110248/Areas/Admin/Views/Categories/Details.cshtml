@@ -31,10 +31,13 @@
             @Html.DisplayNameFor(model => model.image)
         </dt>
 
-        <dd>
+        @*<dd>
             @Html.DisplayFor(model => model.image)
-        </dd>
+        </dd>*@
+        <td>
+            <img src="~/Content/images/categories/@Model.image" alt="Category Image" style="width: 100px; height: auto;" />
 
+        </td>
         <dt>
             @Html.DisplayNameFor(model => model.created_at)
         </dt>

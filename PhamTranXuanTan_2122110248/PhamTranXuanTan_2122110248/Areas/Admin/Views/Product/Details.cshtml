@@ -54,10 +54,12 @@
         <dt>
             @Html.DisplayNameFor(model => model.image)
         </dt>
-
-        <dd>
+        <td>
+            <img src="~/Content/images/products/@Model.image" alt="Product Image" style="width: 100px; height: auto;" />
+        </td>
+        @*<dd>
             @Html.DisplayFor(model => model.image)
-        </dd>
+        </dd>*@
 
         <dt>
             @Html.DisplayNameFor(model => model.created_at)

@@ -25,14 +25,11 @@
     <link rel="stylesheet" href="~/Content/admin/plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
     <link rel="stylesheet" href="~/Content/admin/plugins/summernote/summernote-bs4.min.css">
-    <script>
-    @if (TempData["LogMessage"] != null)
-    {
-        <text>
-            console.log("@TempData["LogMessage"]");
-        </text>
-    }
-    </script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Toastr JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -66,24 +63,17 @@
             </div>
 
             <!-- SidebarSearch Form -->
-            <div class="form-inline">
-                <div class="input-group" data-widget="sidebar-search">
-                    <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-                    <div class="input-group-append">
-                        <button class="btn btn-sidebar">
-                            <i class="fas fa-search fa-fw"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
+            
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item">Home</li>
-                                <a href="~/Admin/Product/Index" class="breadcrumb-item">Sản phẩm</a>
-                                <a href="~/Admin/Categories/Index" class="breadcrumb-item">Danh Mục</a>
+                                <a href="~/Admin/Product/Index">Sản phẩm</a>
+                                <a href="~/Admin/Categories/Index">Danh Mục</a>
+                                <a href="~/Admin/Brand/Index">Thương hiệu</a>
+                                <a href="~/Admin/User/Index">Người dùng</a>
+                                <a href="~/Admin/order/Index">Đơn hàng</a>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->

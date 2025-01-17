@@ -4,7 +4,7 @@ using System.Web.Mvc;
 using PhamTranXuanTan_2122110248.Context;
 using PhamTranXuanTan_2122110248.Models;
 using PhamTranXuanTan_2122110248.Utils;
-
+using System.Data.Entity;
 namespace PhamTranXuanTan_2122110248.Controllers
 {
     public class HomeController : Controller
@@ -13,14 +13,41 @@ namespace PhamTranXuanTan_2122110248.Controllers
 
         public ActionResult Index()
         {
+            // Lấy danh sách sản phẩm mới, sắp xếp theo ngày tạo, chỉ lấy 3 sản phẩm mới nhất
+            var products = objECommerceDBEntities.products
+                            .OrderByDescending(p => p.created_at)
+                            .Take(3)
+                            .ToList();
+
+            // Lấy danh sách sản phẩm đề xuất, sắp xếp theo ngày tạo, chỉ lấy 10 sản phẩm mới nhất
+            var productRecommended = objECommerceDBEntities.products
+                            .OrderByDescending(p => p.created_at)
+                            .Take(10)
+                            .ToList();
+
+            // Lấy danh mục cho từng sản phẩm đề xuất
+            foreach (var product in productRecommended)
+            {
+                var category = objECommerceDBEntities.categories
+                                 .FirstOrDefault(c => c.id == product.category_id);
+
+                if (category != null)
+                {
+                    product.category_name = category.name;  // Gán tên danh mục cho sản phẩm
+                }
+            }
+
             var viewModel = new HomeViewModel
             {
                 Categories = objECommerceDBEntities.categories.ToList(),
                 Brands = objECommerceDBEntities.brands.ToList(),
-                Product = objECommerceDBEntities.products.OrderBy(p => p.created_at).FirstOrDefault(),
+                Product = products,
+                ProductRecommended = productRecommended,
             };
+
             return View(viewModel);
         }
+
 
         public ActionResult Login(user user)
         {

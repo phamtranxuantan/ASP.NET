@@ -98,28 +98,63 @@
             <div class="col-heading content-body">
                 <h3 class="section-title">Sản phẩm mới</h3>
             </div> <!-- col.// -->
-           
-                <div class="row no-gutters items-wrap">
+
+            <div class="row no-gutters items-wrap">
+                @foreach (var product in Model.Product)
+                {
                     <div class="col-md col-6">
                         <figure class="card-product-grid card-sm">
-                            <a href="#" class="img-wrap">
-                                <img src="~/Content/images/products/@Model.Product.image">
+                            <a href="@Url.Action("Detail", "Product", new { id = product.id })" class="img-wrap">
+                                <img src="~/Content/images/products/@product.image" alt="@product.name">
                             </a>
                             <div class="text-wrap p-3">
-                                <a href="@Url.Action("Detail", "Product", new { id = @Model.Product.id })" class="title">@Model.Product.name</a>
-
-                                <span class="badge badge-danger">Mới </span>
+                                <a href="@Url.Action("Detail", "Product", new { id = product.id })" class="title">@product.name</a>
+                                <span class="badge badge-danger">Mới</span>
                             </div>
                         </figure>
                     </div> <!-- col.// -->
-
-                </div>
-            
-
+                }
+            </div>
         </div>
-
     </section>
-    
+    <section class="padding-bottom">
+        <header class="section-heading mb-4">
+            <h3 class="title-section">Sản phẩm đề xuất</h3>
+        </header>
+       
+        <div class="row">
+           
+                @foreach (var product in Model.ProductRecommended)
+                {
+                    <div class="col-md-3">
+                        <figure class="card card-product-grid">
+                            <div class="img-wrap">
+
+                                <img src="~/Content/images/products/@Url.Content(product.image)">
+                            </div>
+                            <figcaption class="info-wrap">
+                                <div>
+                                    <a href="#" class="text-muted">Danh mục: @product.category_name</a>
+                                    <a href="@Url.Action("Detail", "Product", new { id = product.id })" class="title mb-2">Tên sản phẩm: @product.name</a>
+                                </div>
+                                
+                                <div class="price-wrap">
+                                    <span class="price">Giá: @product.price.ToString("#,##0") VND</span>
+                                    @*<small class="text-muted">/per bag</small>*@
+                                </div>
+
+                            </figcaption>
+                        </figure>
+                    </div>
+                }
+            
+            </div>
+
+
+
+</section>
+
+
     <section class="padding-bottom">
 
         <header class="section-heading heading-line">
@@ -135,7 +170,7 @@
             <li class="col-md col-6"><a href="#" class="icontext"> <img class="icon-flag-sm" src="~/Content/images/icons/flags/GB.png"> <span>England</span> </a></li>
             <li class="col-md col-6"><a href="#" class="icontext"> <img class="icon-flag-sm" src="~/Content/images/icons/flags/TR.png"> <span>Turkey</span> </a></li>
             <li class="col-md col-6"><a href="#" class="icontext"> <img class="icon-flag-sm" src="~/Content/images/icons/flags/UZ.png"> <span>Uzbekistan</span> </a></li>
-            
+
         </ul>
     </section>
     <!-- =============== SECTION REGION .//END =============== -->

@@ -63,7 +63,7 @@ namespace PhamTranXuanTan_2122110248.Controllers
         {
             // Lấy sản phẩm được tạo sớm nhất
             var earliestProduct = objECommerceDBEntities.products
-                                    .OrderBy(p => p.created_at)
+                                    .OrderByDescending(p => p.created_at).Take(5)
                                     .FirstOrDefault();
 
             // Kiểm tra nếu không có sản phẩm nào
